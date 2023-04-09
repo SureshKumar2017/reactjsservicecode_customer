@@ -28,7 +28,7 @@ import com.customer.repo.Customer;
  */
 @CrossOrigin(value = "*")
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/customer")
 public class CustomerRestController {
 	
 	@Autowired
@@ -42,9 +42,9 @@ public class CustomerRestController {
 		List<Customer> websiteL = repo.findAll();
 		for(Customer website:websiteL) {
 			websiteVO = new CustomerVO();
-			websiteVO.setId(website.getId());
-			websiteVO.setTitle(website.getTitle());
-			websiteVO.setUrl(website.getUrl());
+			websiteVO.setCustid(website.getCustid());
+			websiteVO.setCustname(website.getCustname());
+			websiteVO.setOccupation(website.getOccupation());
 			emp.add(websiteVO);
 		}
 		
@@ -69,10 +69,10 @@ public class CustomerRestController {
 		Customer website = web.get();
 		
 		CustomerVO employee2 = new CustomerVO();
-		employee2.setId(website.getId());
-		employee2.setTitle(website.getTitle());
-		employee2.setUrl(website.getUrl());
-		System.out.println("Get by title ===========>"+website.getTitle());
+		employee2.setCustid(website.getCustid());
+		employee2.setCustname(website.getCustname());
+		employee2.setOccupation(website.getOccupation());
+		System.out.println("Get by title ===========>"+website.getCustname());
 		return new ResponseEntity<CustomerVO>(employee2, HttpStatus.OK);
 	}
 
@@ -82,10 +82,10 @@ public class CustomerRestController {
 		System.out.println("==???????????ADDE??????????????");
 		Customer website2 = new Customer();
 	//	website2.setId(website.getId());
-		website2.setTitle(website.getTitle());
-		website2.setUrl(website.getUrl());
+		website2.setCustname(website.getCustname());
+		website2.setOccupation(website.getOccupation());
 		Customer w = repo.save(website2);
-		System.out.println("Added ===========>"+w.getId());
+		System.out.println("Added ===========>"+w.getCustid());
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
@@ -93,11 +93,11 @@ public class CustomerRestController {
 	public ResponseEntity<Void> updateWebsite(@RequestBody CustomerVO website) throws Exception {
 	//	websiteService.updateWebsite(website);
 		
-		Optional<Customer> web  = repo.findById((Long.parseLong(website.getId().toString())));
+		Optional<Customer> web  = repo.findById((Long.parseLong(website.getCustid().toString())));
 		Customer website2 = web.get();
 		
-		website2.setTitle(website.getTitle());
-		website2.setUrl(website.getUrl());
+		website2.setCustname(website.getCustname());
+		website2.setOccupation(website.getOccupation());
 		repo.save(website2);
 		System.out.println(" Update Sucessfully");
 		

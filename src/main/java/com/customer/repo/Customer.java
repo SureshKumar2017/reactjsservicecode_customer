@@ -9,40 +9,41 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name = "website")
+@Entity(name = "customer")
 public class Customer {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(name = "url")
-	private String url;
+	private Long custid;
+	@Column(name = "custname")
+	private String custname;
 
-	@Column(name = "title")
-	private String title;
+	@Column(name = "occupation")
+	private String occupation;
 
-	public Long getId() {
-		return id;
+	public Long getCustid() {
+		return custid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCustid(Long custid) {
+		this.custid = custid;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getCustname() {
+		return custname;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setCustname(String custname) {
+		this.custname = custname;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getOccupation() {
+		return occupation;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
 	}
+
 
 	
 }

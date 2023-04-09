@@ -1,31 +1,33 @@
 package com.customer.models;
 
 public class CustomerVO {
-	private Long id;
-	private String url;
-	private String title;
+	private Long custid;
+	private String custname;
 
-	public Long getId() {
-		return id;
+	private String occupation;
+
+	public Long getCustid() {
+		return custid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCustid(Long custid) {
+		this.custid = custid;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getCustname() {
+		return custname;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setCustname(String custname) {
+		this.custname = custname;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getOccupation() {
+		return occupation;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
 	}
+
 }
