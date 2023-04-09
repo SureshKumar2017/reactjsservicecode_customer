@@ -1,6 +1,7 @@
 package com.customer.models;
 
 public class Customer {
+	
 	public Long id;
 	public String firstName;
 	public String lastName;
